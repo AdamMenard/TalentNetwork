@@ -18,7 +18,15 @@ $(document).ready(function() {
   }
 
   function handleError(errorResponse) {
-    debugger
+    console.log('There was an error: ', errorResponse);
   }
 
+  $('#user-form form').on('submit', function() {
+    $.ajax({
+      method: "POST",
+      url: '',
+      success: function() {},
+      error: function() {}
+    })
+  })
 });
