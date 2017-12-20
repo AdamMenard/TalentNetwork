@@ -10,7 +10,7 @@ var UserSchema = new Schema({
   name: String,
   email: String,
   location: String,
-  talents: String
+  talents: [Talent.schema]
 });
 
 // user model

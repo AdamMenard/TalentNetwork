@@ -2,10 +2,7 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/TalentNetwork');
 
-var User = require('./user');
-var Talent = require('./talent');
-
 module.exports = {
-  User: User,
-  Talent: Talent
+  User: require('./user'),
+  Talent: require('./talent')
 };
