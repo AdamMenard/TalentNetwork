@@ -8,30 +8,43 @@
 
 // hard-coded data
 var sampleUsers = [{
-  artistName: 'Ladyhawke',
-  name: 'Ladyhawke',
-  releaseDate: '2008, November 18',
+  talentName: 'Ladyhawke',
+  Name: 'Ladyhawke',
+  postDate: '2008, November 18',
   genres: [ 'new wave', 'indie rock', 'synth pop' ]
 }, {
-  artistName: 'The Knife',
+  ArtistName: 'The Knife',
   name: 'Silent Shout',
   releaseDate: '2006, February 17',
   genres: [ 'synth pop', 'electronica', 'experimental' ]
 }, {
-  artistName: 'Juno Reactor',
+  ArtistName: 'Juno Reactor',
   name: 'Shango',
   releaseDate: '2000, October 9',
   genres: [ 'electronic', 'goa trance', 'tribal house' ]
 }, {
-  artistName: 'Philip Wesley',
+  ArtistName: 'Philip Wesley',
   name: 'Dark Night of the Soul',
   releaseDate: '2008, September 12',
   genres: [ 'piano' ]
 }];
 
 
+
+
+
+
+
+
+
+
 $(document).ready(function() {
   console.log('app.js loaded!');
+
+
+
+
+
 
   // make a GET request for all users
   $.ajax({
@@ -40,6 +53,10 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
+
+
+
+
 
   $('#user-form form').on('submit', function(e) {
     e.preventDefault();
@@ -53,6 +70,16 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+
+
+
+
+
+
+
+
+
+
   // add click handler to 'add talent' buttons
   $('#users').on('click', '.add-talent', function(e) {
     console.log('add-talent clicked!');
@@ -63,6 +90,15 @@ $(document).ready(function() {
     $('#talentModal').data('user-id', id);
     $('#talentModal').modal();
   });
+
+
+
+
+
+
+
+
+
 
   $('#users').on('click', '.delete-user', function(e) {
     var id = $(this).closest('.user').data('user-id');
@@ -77,6 +113,15 @@ $(document).ready(function() {
     });
   });
 
+
+
+
+
+
+
+
+
+
   $('#saveTalent').on('click', handleNewTalentSubmit);
   $('#users').on('click', '.edit-user', handleUserEditClick);
   $('#users').on('click', '.save-user', handleUserSaveClick);
@@ -88,7 +133,16 @@ $(document).ready(function() {
 });
 
 
-// UPDATE SONG
+
+
+
+
+
+
+
+
+
+// UPDATE TALENT and save
 function handleUpdateTalentsSave(e) {
   var $modal = $('#editTalentsModal');
 
@@ -116,6 +170,13 @@ function handleUpdateTalentsSave(e) {
 
 
 
+
+
+
+
+
+
+
 function updateTalents(userId, talents) {
   // 1 PUT request per talentId
   // re-render entire user after all PUT requests are finished
@@ -140,15 +201,41 @@ function updateTalents(userId, talents) {
   });
 }
 
+
+
+
+
+
+
+
+
+
 function handleSuccess (users) {
   users.forEach(function(user) {
     renderUser(user);
   });
 };
 
+
+
+
+
+
+
+
+
+
 function handleError(err){
   console.log('There has been an error: ', err);
 }
+
+
+
+
+
+
+
+
 
 
 // when the edit button for an user is clicked
@@ -176,6 +263,14 @@ function handleUserEditClick(e) {
 }
 
 
+
+
+
+
+
+
+
+
 function handleUserSaveClick() {
   var userId = $(this).parents('.user').data('user-id'); // $(this).closest would have worked fine too
   var $userRow = $('[data-user-id=' + userId + ']');
@@ -197,6 +292,14 @@ function handleUserSaveClick() {
 }
 
 
+
+
+
+
+
+
+
+
 function handleUserUpdatedResponse(data) {
   console.log('response to update', data);
 
@@ -206,6 +309,14 @@ function handleUserUpdatedResponse(data) {
   $('[data-user-id=' + userId + ']').remove();
   renderUser(data);
 }
+
+
+
+
+
+
+
+
 
 
 function handleTalentsEditClick() {
@@ -219,6 +330,14 @@ function handleTalentsEditClick() {
     $('#editTalentsModal').modal();
   });
 }
+
+
+
+
+
+
+
+
 
 
 function buildEditTalentsForms(userId, talents) {
@@ -241,6 +360,14 @@ function buildEditTalentsForms(userId, talents) {
   // combine all talent forms into a single string
   return talentEditFormHtmlStrings.join('');
 }
+
+
+
+
+
+
+
+
 
 
 // this function takes a single user and renders it to the page
@@ -315,6 +442,16 @@ function renderUser(user) {
   $('#users').prepend(userHtml);
 }
 
+
+
+
+
+
+
+
+
+
+
 function handleNewTalentSubmit(e) {
   e.preventDefault();
   console.log('in handleNewTalentSubmit function');
@@ -354,6 +491,14 @@ function handleNewTalentSubmit(e) {
 }
 
 
+
+
+
+
+
+
+
+
 function handleDeleteTalentClick(e) {
   e.preventDefault();
   var talentId = $(this).data('talent-id');
@@ -368,6 +513,15 @@ function handleDeleteTalentClick(e) {
   });
 }
 
+
+
+
+
+
+
+
+
+
 function handleTalentDeleteResponse(data) {
   var talentId = data._id;
   var $formRow = $('form#' + talentId);
@@ -377,6 +531,15 @@ function handleTalentDeleteResponse(data) {
   $formRow.remove();
   fetchAndReRenderUserById(userId);
 }
+
+
+
+
+
+
+
+
+
 
 function fetchAndReRenderUserById(userId) {
   $.get('/api/users/' + userId, function(data) {
