@@ -3,13 +3,17 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: #AEA;
+  text-align: center;
+
 }
 .jumbotron .container {
   height: 400px;
+    text-align: center;
 }
 
 .inline-header {
   display: inline-block;
   vertical-align: baseline;
   margin-right: 20px;
+    text-align: center;
 }
