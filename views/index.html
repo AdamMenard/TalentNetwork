@@ -35,45 +35,68 @@
             <!-- Form Name -->
             <legend>Add New User</legend>
 
+
+                                    <!-- USER FIELDS -->
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="name">User Name</label>
+              <label class="col-md-4 control-label" for="talentedPerson">Talented Person</label>
               <div class="col-md-4">
-              <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="artistName">Artist Name</label>
-              <div class="col-md-4">
-              <input id="textinput" name="artistName" type="text" placeholder="" class="form-control input-md">
+              <input id="talentedPerson" name="talentedPerson" type="text" placeholder="write your name" class="form-control input-md" required="">
 
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="releaseDate">Release Date</label>
+              <label class="col-md-4 control-label" for="email">Email</label>
               <div class="col-md-4">
-              <input id="releaseDate" name="releaseDate" type="text" placeholder="1992" class="form-control input-md">
+              <input id="email" name="email" type="text" placeholder="your email to get discovered" class="form-control input-md">
 
               </div>
             </div>
 
-            <!-- Textarea -->
+            <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
+              <label class="col-md-4 control-label" for="userLocation">Location</label>
               <div class="col-md-4">
-                <textarea class="form-control" id="genres" name="genres">rock, pop</textarea>
+              <input id="userLocation" name="userLocation" type="text" placeholder="where are you from?" class="form-control input-md">
+
               </div>
             </div>
+
+
+                                  <!-- TALENT FIELDS -->
+<!--
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="talentName" placeholder="what do you call your talent?">Talent Name</label>
+              <div class="col-md-4">
+                <input class="form-control" id="talentName" name="talentName"></input>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="talentImage" >Talent Image</label>
+              <div class="col-md-4">
+                <input class="form-control" id="talentImage" name="talentImage" placeholder="add the url for an image to describe your talent "></input>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="talentDesription">Talent Description</label>
+              <div class="col-md-4">
+                <textarea class="form-control" id="talentDesription" name="talentDesription" placeholder="tell us about your talent"></textarea>
+              </div>
+            </div> -->
+
+
+
 
 
             <!-- Button -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton">Save User</label>
+              <label class="col-md-4 control-label" for="singlebutton">Create your Profile</label>
               <div class="col-md-4">
                 <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
               </div>
@@ -84,6 +107,14 @@
       </div>
     </section>
 
+
+
+
+
+
+
+                            <!-- DISPLAYS USERS -->
+
     <section class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -93,6 +124,11 @@
       <!-- users! -->
       <div id="users"></div>
     </section>
+
+
+
+
+
 
   </body>
 </html>
