@@ -36,7 +36,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 app.get('/api/users', controllers.users.index);
 app.get('/api/users/:user_id', controllers.users.show);
-app.get('/api/users/:user_id/talents', controllers.usersTalents.index);
+// app.get('/api/users/:user_id/talents', controllers.usersTalents.index);
 
 app.post('/api/users', controllers.users.create);
 app.post('/api/users/:user_id/talents', controllers.usersTalents.create);

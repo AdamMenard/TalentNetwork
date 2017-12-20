@@ -1,49 +1,56 @@
 var db = require("./models");
 
 var usersList = [{
-  artistName: 'Nine Inch Nails',
-  name: 'The Downward Spiral',
-  releaseDate: '1994, March 8',
-  genres: [ 'industrial', 'industrial metal' ]
+ name: 'John',
+ email: 'johntest@gmail.com',
+ location: 'San Francisco',
+ talents: [ 'soft-engineer', 'writing' ]
 }, {
-  artistName: 'Metallica',
-  name: 'Metallica',
-  releaseDate: '1991, August 12',
-  genres: [ 'heavy metal' ]
+ name: 'Lily',
+ email: 'lilytest@gmail.com',
+ location: 'New York',
+ talents: [ 'ice-skating' ]
 }, {
-  artistName: 'The Prodigy',
-  name: 'Music for the Jilted Generation',
-  releaseDate: '1994, July 4',
-  genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
+ name: 'Jack',
+ email: 'jacktest@gmail.com',
+ location: 'Chicago',
+ talents: [ 'teaching', 'singing', 'dacing', 'swimming' ]
 }, {
-  artistName: 'Johnny Cash',
-  name: 'Unchained',
-  releaseDate: '1996, November 5',
-  genres: [ 'country', 'rock' ]
+ name: 'Ann',
+ email: 'anntest@gmail.com',
+ location: 'Boston',
+ talents: [ 'piano', 'painting' ]
 }];
 
 
 var talentsList = [{
-  name: 'Swamped',
-  trackNumber: 1
+  name: 'sport',
+  description: "I can play basketball",
+  image: "sport image"
 }, {
-  name: "Heaven's a Lie",
-  trackNumber: 2
+  name: 'chess',
+  description: "really old board game",
+  image: "chess image"
 }, {
-  name: 'Daylight Dancer',
-  trackNumber: 3
+  name: 'darts',
+  description: "fun game, I love darts",
+  image: "dartboard image"
 }, {
-  name: 'Humane',
-  trackNumber: 4
+  name: 'art',
+  description: "making art",
+  image: "art image"
 }, {
-  name: 'Self Deception',
-  trackNumber: 5
+  name: 'fishing',
+  description: "fish everyday",
+  image: "fish image"
 }, {
-  name: 'Aeon',
-  trackNumber: 6
+  name: 'painting',
+  description: "painting is my hobby",
+  image: "painting image"
 }, {
-  name: 'Tight Rope',
-  trackNumber: 7
+  name: 'draw',
+  description: "No 1 drawer in USF",
+  image: "draw image"
 }];
 
 

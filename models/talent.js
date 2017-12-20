@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 // talent schema
 var TalentSchema = new Schema({
   name: String,
-  trackNumber: Number
+  description: String,
+  image: String
 });
 
 // talent model

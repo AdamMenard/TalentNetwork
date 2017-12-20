@@ -7,11 +7,10 @@ var Talent = require('./talent');
 
 // user schema
 var UserSchema = new Schema({
-  artistName: String,
   name: String,
-  releaseDate: String,
-  genres: [ String ],
-  talents: [ Talent.schema ]
+  email: String,
+  location: String,
+  talents: String
 });
 
 // user model
