@@ -20,4 +20,6 @@ div.jumbotron {
   text-align: center;
 
 }
-
+ .panel {
+   border: 3px solid black;
+ }

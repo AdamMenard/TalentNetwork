@@ -18,16 +18,16 @@ $(document).ready(function() {
 
       $('#users').append(`
         <div class="panel" data-id="${eachUser._id}">
-          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
+          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
           <p>${eachUser.name}</p>
           <p>${eachUser.email}</p>
           <p>${eachUser.location}</p>
           <div>
             <h1>Talents</h1>
-            ${ arrayOfTalentDivs.join('') } 
+            ${ arrayOfTalentDivs.join('') }
           </div>
 
-          <div>  
+          <div>
           <!-- Button trigger modal: Add Talent -->
           <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
           </div>
@@ -56,7 +56,7 @@ $(document).ready(function() {
   function onCreateSuccess(createdUser) {
     $('#users').append(`
       <div class = "panel">
-        <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button> 
+        <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
         <p>${createdUser.name}</p>
         <p>${createdUser.email}</p>
         <p>${createdUser.location}</p>
@@ -84,7 +84,3 @@ $(document).ready(function() {
     $userDivToDelete.remove();
   }
 });
-
-
-
-
