@@ -25,6 +25,25 @@ $(document).ready(function() {
           <h1>Talents</h1>
           ${ arrayOfTalentDivs.join('') }
         </div>
+
+
+
+
+
+
+        <!-- Button trigger modal: Add Talent -->
+        <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#exampleModal">Add Talent</button>
+
+
+
+
+
+
+
+
+
+
+
       </div>`);
     });
   }
@@ -46,6 +65,14 @@ $(document).ready(function() {
           <p>${createdUser.name}</p>
           <p>${createdUser.email}</p>
           <p>${createdUser.location}</p>
+
+
+
+
+
+
+
+
       </div>`);
       },
       error: function(Onerr) {}
