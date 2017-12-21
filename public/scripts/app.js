@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+// GET REQUEST FROM DATABASE   
   $.ajax({
     method: "GET",
     url: "/api/users",
@@ -16,7 +18,7 @@ $(document).ready(function() {
         </div>`;
       });
 
-      $('#users').append(`
+      $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
           <p>${eachUser.name}</p>
@@ -40,6 +42,8 @@ $(document).ready(function() {
     console.log('There was an error: ', errorResponse);
   }
 
+
+// SUBMIT BUTTON FOR CREATING NEW USER
   $('#user-form form').on('submit', function(event) {
     event.preventDefault();
     var newUser = $(this).serialize();
@@ -54,7 +58,7 @@ $(document).ready(function() {
   });
 
   function onCreateSuccess(createdUser) {
-    $('#users').append(`
+    $('#users').prepend(`
       <div class = "panel">
         <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
         <p>${createdUser.name}</p>
@@ -64,6 +68,8 @@ $(document).ready(function() {
     `);
   }
 
+
+// DELETE BUTTON USER PROFILE
   $('.container').on('click', '.delete-user', function() {
     $.ajax({
       method: 'DELETE',
