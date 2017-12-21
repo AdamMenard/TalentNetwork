@@ -84,6 +84,7 @@ $(document).ready(function() {
           <!-- Button trigger modal: Add Talent -->
           <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
           </div>
+
         </div>`
       )
     };
@@ -110,3 +111,26 @@ $(document).ready(function() {
     $userDivToDelete.remove();
   }
 });
+
+
+
+// PUT FUNCTION FOR UPDATING USER INFO
+
+
+
+// PUT or PATCH /api/users/:userId
+function update(req, res) {
+  // find one user by id, update it based on request body,
+  // and send it back as JSON
+
+  db.User.findById(req.params.id, function(err, foundUser) {
+    if (err) { console.log('usersController.update error', err); }
+    foundUser.artistName = req.body.artistName;
+    foundUser.name = req.body.name;
+    foundUser.releaseDate = req.body.releaseDate;
+    foundUser.save(function(err, savedUser) {
+      if (err) { console.log('saving altered user failed'); }
+      res.json(savedUser);
+    });
+  });
+}
