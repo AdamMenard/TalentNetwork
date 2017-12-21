@@ -1,46 +1,12 @@
 $(document).ready(function() {
-
   $.ajax({
     method: "GET",
     url: "/api/users",
-    success: handleSuccess,
+    success: handleGetSuccess,
     error: handleError
   });
 
-
-  $('#user-form form').on('submit', function(event) {
-    event.preventDefault();
-    var newUser = $(this).serialize();
-
-    $.ajax({
-      method: "POST",
-      url: '/api/users',
-      data: newUser,
-      success: function onCreateSuccess(createdUser) {
-        $('#users').append(`<div class = "panel">
-          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button> 
-          <p>${createdUser.name}</p>
-          <p>${createdUser.email}</p>
-          <p>${createdUser.location}</p>
-      </div>`);
-      },
-      error: function(Onerr) {}
-    });
-  });
-
-  $('.container').on('click', '.delete-user', function() {
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/users/'+$(this).attr('data-id'),
-      success: deleteUserSuccess,
-      error: deleteUserError
-    });
-  });
-
-
-});
-
-  function handleSuccess(allUsersFromDb) {
+  function handleGetSuccess(allUsersFromDb) {
     allUsersFromDb.forEach(function(eachUser) {
       var arrayOfTalentDivs = eachUser.talents.map(function(eachTalent) {
         return `<div class="card">
@@ -50,22 +16,23 @@ $(document).ready(function() {
         </div>`;
       });
 
-      $('#users').append(`<div class="panel">
-        <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
-        <p>${eachUser.name}</p>
-        <p>${eachUser.email}</p>
-        <p>${eachUser.location}</p>
-        <div>
-          <h1>Talents</h1>
-          ${ arrayOfTalentDivs.join('') } 
-        </div>
+      $('#users').append(`
+        <div class="panel" data-id="${eachUser._id}">
+          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
+          <p>${eachUser.name}</p>
+          <p>${eachUser.email}</p>
+          <p>${eachUser.location}</p>
+          <div>
+            <h1>Talents</h1>
+            ${ arrayOfTalentDivs.join('') } 
+          </div>
 
-        <div>  
-        <!-- Button trigger modal: Add Talent -->
-        <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+          <div>  
+          <!-- Button trigger modal: Add Talent -->
+          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+          </div>
         </div>
-
-      </div>`);
+      `);
     });
   }
 
@@ -73,24 +40,51 @@ $(document).ready(function() {
     console.log('There was an error: ', errorResponse);
   }
 
-function deleteUserSuccess(json) {
-  var user = json;
-  var userId = user._id;
+  $('#user-form form').on('submit', function(event) {
+    event.preventDefault();
+    var newUser = $(this).serialize();
 
-  console.log('clicked');
-  // find the book with the correct ID and remove it from our allBooks array
-  // for(var index = 0; index < allUsers.length; index++) {
-  //   if(allUsers[index]._id === userId) {
-  //     allUsers.splice(index, 1);
-  //     break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
-  //   }
-  // }
-}
+    $.ajax({
+      method: "POST",
+      url: '/api/users',
+      data: newUser,
+      success: onCreateSuccess,
+      error: handleError
+    });
+  });
 
+  function onCreateSuccess(createdUser) {
+    $('#users').append(`
+      <div class = "panel">
+        <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button> 
+        <p>${createdUser.name}</p>
+        <p>${createdUser.email}</p>
+        <p>${createdUser.location}</p>
+      </div>
+    `);
+  }
 
-function deleteUserError() {
-  console.log("user deleting error!");
-}
+  $('.container').on('click', '.delete-user', function() {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/users/'+$(this).attr('data-id'),
+      success: deleteUserSuccess,
+      error: handleError
+    });
+  });
+
+  function deleteUserSuccess(userDeletedInDb) {
+    // find the user ID i want to delete
+    let userIdToDelete = userDeletedInDb._id;
+
+    // find the div with that same ID on the page
+    let $userDivToDelete = $(`.panel[data-id=${userIdToDelete}]`);
+
+    // write jquery to remove that div
+    $userDivToDelete.remove();
+  }
+});
+
 
 
 
