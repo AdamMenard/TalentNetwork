@@ -27,21 +27,8 @@ $(document).ready(function() {
         </div>
 
 
-
-
-
-
         <!-- Button trigger modal: Add Talent -->
-        <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#exampleModal">Add Talent</button>
-
-
-
-
-
-
-
-
-
+        <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
 
 
       </div>`);
