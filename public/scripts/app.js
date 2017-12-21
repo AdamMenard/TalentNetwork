@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+// GET REQUEST FROM DATABASE
   $.ajax({
     method: "GET",
     url: "/api/users",
@@ -16,18 +18,19 @@ $(document).ready(function() {
         </div>`;
       });
 
-      $('#users').append(`
+      $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
-          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
+          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
+            <h4>Meet this talented person</h4>
           <p>${eachUser.name}</p>
           <p>${eachUser.email}</p>
           <p>${eachUser.location}</p>
           <div>
-            <h1>Talents</h1>
-            ${ arrayOfTalentDivs.join('') } 
+            <h4>Check out their talents</h4>
+            ${ arrayOfTalentDivs.join('') }
           </div>
 
-          <div>  
+          <div>
           <!-- Button trigger modal: Add Talent -->
           <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
           </div>
@@ -40,6 +43,8 @@ $(document).ready(function() {
     console.log('There was an error: ', errorResponse);
   }
 
+
+// SUBMIT BUTTON FOR CREATING NEW USER
   $('#user-form form').on('submit', function(event) {
     event.preventDefault();
     var newUser = $(this).serialize();
@@ -54,16 +59,37 @@ $(document).ready(function() {
   });
 
   function onCreateSuccess(createdUser) {
-    $('#users').append(`
-      <div class = "panel">
-        <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button> 
-        <p>${createdUser.name}</p>
-        <p>${createdUser.email}</p>
-        <p>${createdUser.location}</p>
-      </div>
-    `);
-  }
 
+      var arrayOfTalentDivs = createdUser.talents.map(function(createdTalent) {
+        return `<div class="card">
+          <p>${createdTalent.name}</p>
+          <p>${createdTalent.description}</p>
+          <img src="${createdTalent.image}"/>
+        </div>`;
+      });
+
+      $('#users').prepend(`
+        <div class="panel" data-id="${createdUser._id}">
+          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
+            <h4>Meet this talented person</h4>
+          <p>${createdUser.name}</p>
+          <p>${createdUser.email}</p>
+          <p>${createdUser.location}</p>
+          <div>
+            <h4>Check out their talents</h4>
+            ${ arrayOfTalentDivs.join('') }
+          </div>
+
+          <div>
+          <!-- Button trigger modal: Add Talent -->
+          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+          </div>
+        </div>`
+      )
+    };
+
+
+// DELETE BUTTON USER PROFILE
   $('.container').on('click', '.delete-user', function() {
     $.ajax({
       method: 'DELETE',
@@ -84,7 +110,3 @@ $(document).ready(function() {
     $userDivToDelete.remove();
   }
 });
-
-
-
-
