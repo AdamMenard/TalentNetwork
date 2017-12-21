@@ -84,19 +84,19 @@ function deleteUserSuccess(json) {
   var userId = user._id;
 
 
-    $.ajax({
-      method: "POST",
-      url: '/api/users',
-      data: newUser,
-      success: function onCreateSuccess(createdUser) {
-        $('#users').append(`<div class = "panel">
-          <p>${createdUser.name}</p>
-          <p>${createdUser.email}</p>
-          <p>${createdUser.location}</p>
-      </div>`);
-      },
-      error: function(Onerr) {}
-    })
+    // $.ajax({
+    //   method: "POST",
+    //   url: '/api/users',
+    //   data: newUser,
+    //   success: function onCreateSuccess(createdUser) {
+    //     $('#users').append(`<div class = "panel">
+    //       <p>${createdUser.name}</p>
+    //       <p>${createdUser.email}</p>
+    //       <p>${createdUser.location}</p>
+    //   </div>`);
+    //   },
+    //   error: function(Onerr) {}
+    // })
 
   
   console.log('clicked');
