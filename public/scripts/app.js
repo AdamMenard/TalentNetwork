@@ -59,10 +59,16 @@ $(document).ready(function() {
         <p>${eachUser.location}</p>
         <div>
           <h1>Talents</h1>
-          ${ arrayOfTalentDivs.join('') } 
-          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
 
+        </div>
+          ${ arrayOfTalentDivs.join('') } 
+          <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
         </div> 
+
+        <div>  
+        <!-- Button trigger modal: Add Talent -->
+        <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+        </div>
 
       </div>`);
     });
@@ -76,6 +82,21 @@ $(document).ready(function() {
 function deleteUserSuccess(json) {
   var user = json;
   var userId = user._id;
+
+
+    $.ajax({
+      method: "POST",
+      url: '/api/users',
+      data: newUser,
+      success: function onCreateSuccess(createdUser) {
+        $('#users').append(`<div class = "panel">
+          <p>${createdUser.name}</p>
+          <p>${createdUser.email}</p>
+          <p>${createdUser.location}</p>
+      </div>`);
+      },
+      error: function(Onerr) {}
+    })
 
   
   console.log('clicked');
@@ -93,5 +114,6 @@ function deleteUserSuccess(json) {
 function deleteUserError() {
   console.log("user deleting error!");
 }
+
 
 
