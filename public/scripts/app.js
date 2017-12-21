@@ -9,10 +9,22 @@ $(document).ready(function() {
 
   function handleSuccess(allUsersFromDb) {
     allUsersFromDb.forEach(function(eachUser) {
+      var arrayOfTalentDivs = eachUser.talents.map(function(eachTalent) {
+        return `<div class="card">
+          <p>${eachTalent.name}</p>
+          <p>${eachTalent.description}</p>
+          <img src="${eachTalent.image}"/>
+        </div>`;
+      });
+
       $('#users').append(`<div class="panel">
         <p>${eachUser.name}</p>
         <p>${eachUser.email}</p>
         <p>${eachUser.location}</p>
+        <div>
+          <h1>Talents</h1>
+          ${ arrayOfTalentDivs.join('') }
+        </div>
       </div>`);
     });
   }

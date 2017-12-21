@@ -1,30 +1,9 @@
 var db = require("./models");
 
-var usersList = [{
- name: 'John',
- email: 'johntest@gmail.com',
- location: 'San Francisco',
-}, {
- name: 'Lily',
- email: 'lilytest@gmail.com',
- location: 'New York',
-
-}, {
- name: 'Jack',
- email: 'jacktest@gmail.com',
- location: 'Chicago',
-
-}, {
- name: 'Ann',
- email: 'anntest@gmail.com',
- location: 'Boston',
-}];
-
-
 var talentsList = [{
   name: 'sport',
   description: "I can play basketball",
-  image: "sport image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }, {
   name: 'chess',
   description: "really old board game",
@@ -51,10 +30,29 @@ var talentsList = [{
   image: "draw image"
 }];
 
+var usersList = [{
+ name: 'John',
+ email: 'johntest@gmail.com',
+ location: 'San Francisco',
+ talents: [talentsList[0], talentsList[1], talentsList[4]]
+}, {
+ name: 'Lily',
+ email: 'lilytest@gmail.com',
+ location: 'New York',
+ talents: [talentsList[2], talentsList[3]]
 
-usersList.forEach(function(user) {
-  user.talents = talentsList;
-});
+}, {
+ name: 'Jack',
+ email: 'jacktest@gmail.com',
+ location: 'Chicago',
+ talents: [talentsList[4], talentsList[5]]
+
+}, {
+ name: 'Ann',
+ email: 'anntest@gmail.com',
+ location: 'Boston',
+ talents: [talentsList[4], talentsList[6]]
+}];
 
 
 db.User.remove({}, function(err, users){
