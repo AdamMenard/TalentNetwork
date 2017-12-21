@@ -21,11 +21,12 @@ $(document).ready(function() {
       $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
+            <h4>Meet this talented person</h4>
           <p>${eachUser.name}</p>
           <p>${eachUser.email}</p>
           <p>${eachUser.location}</p>
           <div>
-            <h1>Talents</h1>
+            <h4>Check out their talents</h4>
             ${ arrayOfTalentDivs.join('') }
           </div>
 
@@ -70,11 +71,12 @@ $(document).ready(function() {
       $('#users').prepend(`
         <div class="panel" data-id="${createdUser._id}">
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
+            <h4>Meet this talented person</h4>
           <p>${createdUser.name}</p>
           <p>${createdUser.email}</p>
           <p>${createdUser.location}</p>
           <div>
-            <h1>Talents</h1>
+            <h4>Check out their talents</h4>
             ${ arrayOfTalentDivs.join('') }
           </div>
 

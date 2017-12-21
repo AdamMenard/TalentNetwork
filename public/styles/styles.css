@@ -23,3 +23,7 @@ div.jumbotron {
  .panel {
    border: 3px solid black;
  }
+
+h2, h4 {
+  margin-left: 10%;
+}
