@@ -83,21 +83,6 @@ function deleteUserSuccess(json) {
   var user = json;
   var userId = user._id;
 
-
-    $.ajax({
-      method: "POST",
-      url: '/api/users',
-      data: newUser,
-      success: function onCreateSuccess(createdUser) {
-        $('#users').append(`<div class = "panel">
-          <p>${createdUser.name}</p>
-          <p>${createdUser.email}</p>
-          <p>${createdUser.location}</p>
-      </div>`);
-      },
-      error: function(Onerr) {}
-    })
-
   
   console.log('clicked');
   // find the book with the correct ID and remove it from our allBooks array
