@@ -26,7 +26,8 @@ function show(req, res) {
 function destroy(req, res) {
   db.User.findByIdAndRemove(req.params.user_id, function(err, deletedUser) {
     if (err) { console.log('error', err); }
-    res.send(200);
+    res.json(deletedUser);
+
   });
 }
 
