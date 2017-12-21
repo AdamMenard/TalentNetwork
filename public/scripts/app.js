@@ -1,5 +1,3 @@
-var allUsers = [];
-
 $(document).ready(function() {
 
   $.ajax({
@@ -24,8 +22,6 @@ $(document).ready(function() {
           <p>${createdUser.email}</p>
           <p>${createdUser.location}</p>
       </div>`);
-        allUsers.push(createdUser);
-        location.reload();
       },
       error: function(Onerr) {}
     });
@@ -59,9 +55,8 @@ $(document).ready(function() {
         <p>${eachUser.location}</p>
         <div>
           <h1>Talents</h1>
-
-        </div>
           ${ arrayOfTalentDivs.join('') } 
+        </div>
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button> 
         </div> 
 
@@ -72,7 +67,6 @@ $(document).ready(function() {
 
       </div>`);
     });
-    allUsers = allUsersFromDb;
   }
 
   function handleError(errorResponse) {
@@ -83,16 +77,14 @@ function deleteUserSuccess(json) {
   var user = json;
   var userId = user._id;
 
-  
   console.log('clicked');
   // find the book with the correct ID and remove it from our allBooks array
-  for(var index = 0; index < allUsers.length; index++) {
-    if(allUsers[index]._id === userId) {
-      allUsers.splice(index, 1);
-      break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
-    }
-  }
-  location.reload();
+  // for(var index = 0; index < allUsers.length; index++) {
+  //   if(allUsers[index]._id === userId) {
+  //     allUsers.splice(index, 1);
+  //     break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
+  //   }
+  // }
 }
 
 
