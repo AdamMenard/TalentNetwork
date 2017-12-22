@@ -34,6 +34,14 @@ function destroy(req, res) {
 // PUT or PATCH /api/users/:userId
 function update(req, res) {
   db.User.findById(req.params.id, function(err, foundUser) {
+    if (err) { console.log('usersController.update error', err); }
+    foundUser.name = req.body.name;
+    foundUser.email = req.body.email;
+    foundUser.location = req.body.location;
+    foundUser.save(function(err, savedUser) {
+    if (err) { console.log('saving altered album failed'); }
+      res.json(savedUser);
+    });
   });
 }
 
