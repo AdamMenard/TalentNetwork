@@ -29,28 +29,31 @@ $(document).ready(function() {
                 <div class="modal-header">
                  <h5 class="modal-title" id="exampleModalLabel">Edit Info</h5>
                   
+                  <form class = "edit-user" data-id="${eachUser._id}">
+                    <div class="form-group">
+                    <label class="col-md-4 control-label" for="userName" placeholder="what is your new Username?">New User Name</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="userName" name="name" placeholder = "add your new userName " value = "${eachUser.name}"></input>
+                    </div>
+                   </div>
+
+
                   <div class="form-group">
-                  <label class="col-md-4 control-label" for="userName" placeholder="what is your new Username?">New User Name</label>
-                  <div class="col-md-4">
-                    <input class="form-control" id="userName" name="userName" placeholder = "add your new userName " value = "${eachUser.name}"></input>
+                    <label class="col-md-4 control-label" for="email" >Email</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="email" name="email" placeholder=" add your email here " value = "${eachUser.email}"></input>
+                    </div>
                   </div>
-                 </div>
 
 
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="email" >Email</label>
-                  <div class="col-md-4">
-                    <input class="form-control" id="email" name="email" placeholder=" add your email here " value = "${eachUser.email}"></input>
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="location">Location</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="location" name="location" placeholder="tell us your new location" value = "${eachUser.location}"></input>
+                    </div>
                   </div>
-                </div>
-
-
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="location">Location</label>
-                  <div class="col-md-4">
-                    <input class="form-control" id="location" name="location" placeholder="tell us your new location" value = "${eachUser.location}"></input>
-                  </div>
-                </div>
+                  <button type="submit" class="edit-button class="btn btn-primary">Save New Info</button>
+                </form>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                  </button>
@@ -60,7 +63,6 @@ $(document).ready(function() {
                </div>
               <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             <button type="button" class="edit-button class="btn btn-primary">Save New Info</button>
              </div>
            </div>
          </div>
@@ -156,19 +158,21 @@ $(document).ready(function() {
   }
 
 // EDIT BUTTON FOR USER 
-  $('.container').on('click', '.edit-button', function() {
-    debugger;
+  $('.container').on('submit', '.edit-user', function(event) {
+    event.preventDefault();
+    var updateUser = $(this).serialize();
     $.ajax({
       method: 'PUT',
-      url: '/api/users/'+$(this).attr('data-id'),
+      url: '/api/users/'+ $(this).attr('data-id'),
+      data: updateUser,
       success: updateUserSuccess,
       error: handleError
     });
   });
-
+ 
   function updateUserSuccess(userEditInDb){
      console.log('response to update', userEditInDb);
-
+     location.reload();
   }
 
 
