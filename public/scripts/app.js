@@ -73,6 +73,54 @@ $(document).ready(function() {
 
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
 
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Edit</button>
+               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Edit Info</h5>
+                  
+                  <form class = "edit-user" data-id="${eachUser._id}">
+                    <div class="form-group">
+                    <label class="col-md-4 control-label" for="userName" placeholder="what is your new Username?">New User Name</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="userName" name="name" placeholder = "add your new userName " value = "${eachUser.name}"></input>
+                    </div>
+                   </div>
+
+
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="email" >Email</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="email" name="email" placeholder=" add your email here " value = "${eachUser.email}"></input>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="location">Location</label>
+                    <div class="col-md-4">
+                      <input class="form-control" id="location" name="location" placeholder="tell us your new location" value = "${eachUser.location}"></input>
+                    </div>
+                  </div>
+                  <button type="submit" class="edit-button class="btn btn-primary">Save New Info</button>
+                </form>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+
+
+        
+               </div>
+              <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+         </div>
+       </div>
+
+
             <h4>Meet this talented person</h4>
           <p><strong><u>${eachUser.name}</strong></u></p>
           <p>${eachUser.email}</p>
@@ -227,8 +275,6 @@ $(document).ready(function() {
   }
 
 
-// PUT FUNCTION FOR UPDATING USER INFO
-
 
 
 // BUTTON FOR EDIT TALENTS
@@ -267,3 +313,28 @@ $(document).ready(function() {
 //
 
 }); //end doc.ready
+=======
+// EDIT BUTTON FOR USER 
+  $('.container').on('submit', '.edit-user', function(event) {
+    event.preventDefault();
+    var updateUser = $(this).serialize();
+    $.ajax({
+      method: 'PUT',
+      url: '/api/users/'+ $(this).attr('data-id'),
+      data: updateUser,
+      success: updateUserSuccess,
+      error: handleError
+    });
+  });
+ 
+  function updateUserSuccess(userEditInDb){
+     console.log('response to update', userEditInDb);
+     location.reload();
+  }
+
+
+
+
+
+});
+
