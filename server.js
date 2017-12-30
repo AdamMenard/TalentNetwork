@@ -39,7 +39,7 @@ app.get('/api/users/:user_id', controllers.users.show);
 // app.get('/api/users/:user_id/talents', controllers.usersTalents.index);
 
 app.post('/api/users', controllers.users.create);
-app.post('/api/users/:user_id/talents', controllers.usersTalents.create);
+app.put('/api/users/:user_id/talents', controllers.usersTalents.create);
 
 app.put('/api/users/:id', controllers.users.update);
 app.put('/api/users/:user_id/talents/:talent_id', controllers.usersTalents.update);

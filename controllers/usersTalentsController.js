@@ -4,11 +4,18 @@ var db = require('../models');
 function index(req, res) {
 }
 
-// POST '/api/users/:userId/talents'
+// POST '/api/users/:user_id/talents'
 function create(req, res) {
+  db.User.findById(req.params.user_id, function(err, foundUser) {
+    // foundUser = {name: 'Bob', talents: []};
+    foundUser.talents.push(req.body);
+    foundUser.save(function(err, savedUser) {
+      res.json(savedUser);
+    })
+  })
 }
 
-// PUT '/api/users/:userId/talents/:talentId'
+// PUT '/api/users/:user_id/talents/:talentId'
 function update(req, res) {
 }
 

@@ -3,7 +3,7 @@ $(document).ready(function() {
 // GET REQUEST FROM DATABASE
   $.ajax({
     method: "GET",
-    url: "/api/users",
+    url: "/api/users/",
     success: handleGetSuccess,
     error: handleError
   });
@@ -20,7 +20,59 @@ $(document).ready(function() {
 
       $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
+
+
+
+
+
+        <!-- add talent Modal -->
+        <div class="modal fade" id="addTalentButton-${eachUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addTalentButtonLabel">Tell us about your talent, it the only way we will know!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <!-- TALENT FIELDS -->
+                    <form class="addTalentForm" data-id="${eachUser._id}">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentName" placeholder="what do you call your talent?">Talent Name</label>
+                        <div class="col-md-4">
+                          <input class="form-control" id="talentName" name="name"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentImage" >Talent Image</label>
+                        <div class="col-md-4">
+                          <input class="form-control" id="talentImage" name="image" placeholder="add the url for an image to describe your talent "></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentDesription">Talent Description</label>
+                        <div class="col-md-4">
+                          <textarea class="form-control" id="talentDesription" name="description" placeholder="tell us about your talent"></textarea>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${eachUser._id}>Delete</button>
+
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Edit</button>
                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,8 +120,9 @@ $(document).ready(function() {
          </div>
        </div>
 
+
             <h4>Meet this talented person</h4>
-          <p>${eachUser.name}</p>
+          <p><strong><u>${eachUser.name}</strong></u></p>
           <p>${eachUser.email}</p>
           <p>${eachUser.location}</p>
           <div>
@@ -78,9 +131,15 @@ $(document).ready(function() {
           </div>
 
           <div>
-          <!-- Button trigger modal: Add Talent -->
-          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+            <!-- Button trigger modal: Add Talent -->
+          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton-${eachUser._id}">Add Talent</button>
           </div>
+
+          <div>
+            <!-- Button trigger modal: Edit Talent -->
+          <button type="button" class="btn btn-primary" id="editTalentButton" data-toggle="modal"data-target="#editTalentButton">Edit Talent</button>
+          </div>
+
         </div>
       `);
     });
@@ -98,7 +157,7 @@ $(document).ready(function() {
 
     $.ajax({
       method: "POST",
-      url: '/api/users',
+      url: '/api/users/',
       data: newUser,
       success: onCreateSuccess,
       error: handleError
@@ -117,9 +176,61 @@ $(document).ready(function() {
 
       $('#users').prepend(`
         <div class="panel" data-id="${createdUser._id}">
+
+
+
+
+
+        <!-- add talent Modal -->
+        <div class="modal fade" id="addTalentButton-${createdUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addTalentButtonLabel">Tell us about your talent, it the only way we will know!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <!-- TALENT FIELDS -->
+                    <form class="addTalentForm" data-id="${createdUser._id}">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentName" placeholder="what do you call your talent?">Talent Name</label>
+                        <div class="col-md-4">
+                          <input class="form-control" id="talentName" name="name"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentImage" >Talent Image</label>
+                        <div class="col-md-4">
+                          <input class="form-control" id="talentImage" name="image" placeholder="add the url for an image to describe your talent "></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="talentDesription">Talent Description</label>
+                        <div class="col-md-4">
+                          <textarea class="form-control" id="talentDesription" name="description" placeholder="tell us about your talent"></textarea>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
+
+          <button class='btn btn-info edit-talents'>Edit Talents</button>
+
             <h4>Meet this talented person</h4>
-          <p>${createdUser.name}</p>
+          <p><strong><u>${createdUser.name}</strong></u></p>
           <p>${createdUser.email}</p>
           <p>${createdUser.location}</p>
           <div>
@@ -128,9 +239,15 @@ $(document).ready(function() {
           </div>
 
           <div>
-          <!-- Button trigger modal: Add Talent -->
-          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton">Add Talent</button>
+            <!-- Button trigger modal: Add Talent -->
+          <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#addTalentButton-${createdUser._id}">Add Talent</button>
           </div>
+
+          <div>
+            <!-- Button trigger modal: Edit Talent -->
+          <button type="button" class="btn btn-primary" id="editTalentButton" data-toggle="modal"data-target="#editTalentButton">Edit Talent</button>
+          </div>
+
         </div>`
       )
     };
@@ -157,6 +274,46 @@ $(document).ready(function() {
     $userDivToDelete.remove();
   }
 
+
+
+
+// BUTTON FOR EDIT TALENTS
+   $('#editTalentForm').on('submit', function() {
+     console.log("Edit talent button submit clicked");
+
+     $.ajax({
+       method: 'PUT',
+       url: '/api/users/'+$(this).attr('data-id')+'/talents',
+       // success: editTalentButtonSuccess,
+       // error: error
+     }) //end ajax
+ });
+
+
+// BUTTON FOR ADD TALENTS
+   $('#users').on('submit', '.addTalentForm', function(e) {
+     console.log("Edit talent button submit clicked");
+     e.preventDefault();
+
+     console.log('form data', $(this).serialize());
+
+     $.ajax({
+       method: 'PUT',
+       url: '/api/users/'+$(this).attr('data-id') + '/talents',
+       data: $(this).serialize(),
+       success: addTalentButtonSuccess,
+       error: function(err) { console.log(err); }
+     });
+
+     function addTalentButtonSuccess(userWithNewTalentAdded) {
+       // add talent to the page
+       location.reload();
+     }
+ });
+//
+
+}); //end doc.ready
+=======
 // EDIT BUTTON FOR USER 
   $('.container').on('submit', '.edit-user', function(event) {
     event.preventDefault();
@@ -180,3 +337,4 @@ $(document).ready(function() {
 
 
 });
+
