@@ -313,7 +313,6 @@ $(document).ready(function() {
 //
 
 }); //end doc.ready
-=======
 // EDIT BUTTON FOR USER 
   $('.container').on('submit', '.edit-user', function(event) {
     event.preventDefault();
@@ -336,5 +335,5 @@ $(document).ready(function() {
 
 
 
-});
+
 
