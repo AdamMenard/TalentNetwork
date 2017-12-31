@@ -45,7 +45,8 @@ h2 {
 }
 
 h4 {
-  margin-left: 10%;
+  /*margin-left: 10%;*/
+  text-align: center;
 }
 
 h2, h4 {
@@ -54,7 +55,7 @@ h2, h4 {
 
 #users {
   display: grid;
-  grid-template-columns: 50% 45%;
+  grid-template-columns: 50% 50%;
   /*width: 45%;*/
 }
 
@@ -63,7 +64,15 @@ div#users {
 }
 
 div.panel:nth-child(odd) {
-  margin-right: 10%
+  margin-right: 5%;
+}
+
+div.panel:nth-child(even) {
+  margin-left: 5%;
+}
+
+div.panel p {
+  padding-left: 10%;
 }
 
 div.card {
@@ -76,14 +85,19 @@ div.card:nth-child(odd) {
 }
 
 fieldset {
-  border: 5px solid red;
-  border-radius: 25%;
+        /*for testing*/
+  /*border: 5px solid red;*/
+  /*border-radius: 25%;*/
 }
 
 legend {
   text-align: center;
 }
 
-div.panel p {
-  padding-left: 10%;
+
+
+img {
+  height: auto;
+  width: 100px;
+  max-height: 100px;
 }

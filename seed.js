@@ -7,7 +7,7 @@ var talentsList = [{
 }, {
   name: 'chess',
   description: "really old board game",
-  image: src("../public/images/chess.jpeg")
+  image: "/images/chess.jpeg"
 }, {
   name: 'darts',
   description: "fun game, I love darts",
