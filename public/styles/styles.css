@@ -27,3 +27,17 @@ div.jumbotron {
 h2, h4 {
   margin-left: 10%;
 }
+
+#users {
+  float: left;
+  width: 45%;
+}
+
+div.card {
+  background: #eee;
+  padding: 1em;
+}
+
+div.card:nth-child(odd) {
+  background: #ddd;
+}
