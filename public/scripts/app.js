@@ -21,10 +21,6 @@ $(document).ready(function() {
       $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
 
-
-
-
-
         <!-- add talent Modal -->
         <div class="modal fade" id="addTalentButton-${eachUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -65,9 +61,6 @@ $(document).ready(function() {
             </div>
           </div>
         </div>
-
-
-
 
 
 
@@ -129,10 +122,6 @@ $(document).ready(function() {
       $('#users').prepend(`
         <div class="panel" data-id="${createdUser._id}">
 
-
-
-
-
         <!-- add talent Modal -->
         <div class="modal fade" id="addTalentButton-${createdUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -176,10 +165,7 @@ $(document).ready(function() {
 
 
 
-
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
-
-          <button class='btn btn-info edit-talents'>Edit Talents</button>
 
             <h4>Meet this talented person</h4>
           <p><strong><u>${createdUser.name}</strong></u></p>
@@ -200,8 +186,8 @@ $(document).ready(function() {
           <button type="button" class="btn btn-primary" id="editTalentButton" data-toggle="modal"data-target="#editTalentButton">Edit Talent</button>
           </div>
 
-        </div>`
-      )
+        </div>
+      `)
     };
 
 
