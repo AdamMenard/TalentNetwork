@@ -7,27 +7,27 @@ var talentsList = [{
 }, {
   name: 'chess',
   description: "really old board game",
-  image: "chess image"
+  image: src("../public/images/chess.jpeg")
 }, {
   name: 'darts',
   description: "fun game, I love darts",
-  image: "dartboard image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }, {
   name: 'art',
   description: "making art",
-  image: "art image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }, {
   name: 'fishing',
   description: "fish everyday",
-  image: "fish image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }, {
   name: 'painting',
   description: "painting is my hobby",
-  image: "painting image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }, {
   name: 'draw',
   description: "No 1 drawer in USF",
-  image: "draw image"
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png"
 }];
 
 var usersList = [{
