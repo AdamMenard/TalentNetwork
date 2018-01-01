@@ -43,6 +43,7 @@ app.put('/api/users/:user_id/talents', controllers.usersTalents.create);
 
 app.put('/api/users/:id', controllers.users.update);
 app.put('/api/users/:user_id/talents/:talent_id', controllers.usersTalents.update);
+app.put('/api/users/:user_id/editTalents/:talent_id', controllers.usersTalents.update);
 
 app.delete('/api/users/:user_id', controllers.users.destroy);
 app.delete('/api/users/:user_id/talents/:talent_id', controllers.usersTalents.destroy);

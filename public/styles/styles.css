@@ -74,6 +74,7 @@ div.panel:nth-child(even) {
   margin-left: 5%;
 }
 
+
 div.panel p {
   padding-left: 10%;
 }
@@ -106,6 +107,10 @@ img {
   max-height: 100px;
 }
 
+main {
+  "margin-left: 20%;
+}
+
 #menu {
   width: 200px;
   float: left;
@@ -114,7 +119,8 @@ img {
 
 .menuBackdrop {
   height: 300px;
-  background-color: rgba(200,200,200, .5);
+  /*background-color: rgba(200,200,200, .5);*/
+  background: linear-gradient(rgba(200,200,200, .5), rgba(300,300,300, .8));
 }
 
 
@@ -152,4 +158,45 @@ img {
 
 .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+    position: absolute; /* Position them relative to the browser window */
+    left: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background (20,80,140,200px)*/
+#menu1 {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#menu2 {
+    top: 80px;
+    background-color: #2196F3; /* Blue */
+}
+
+#menu3 {
+    top: 140px;
+    background-color: #f44336; /* Red */
+}
+
+#menu4 {
+    top: 200px;
+    background-color: #555 /* Light Black */
 }
