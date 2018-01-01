@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 // GET REQUEST FROM DATABASE
   $.ajax({
     method: "GET",
@@ -8,22 +9,23 @@ $(document).ready(function() {
     error: handleError
   });
 
+
   function handleGetSuccess(allUsersFromDb) {
     allUsersFromDb.forEach(function(eachUser) {
       var arrayOfTalentDivs = eachUser.talents.map(function(eachTalent) {
-        return `<div class="card">
-          <p>${eachTalent.name}</p>
-          <p>${eachTalent.description}</p>
-          <img src="${eachTalent.image}"/>
+        return `
+        <div class="card">
+          <button class="accordion">${eachTalent.name}</button>
+            <div class="panel">
+                <p>${eachTalent.description}</p>
+                <img src="${eachTalent.image}"/>
+            </div>
         </div>`;
       });
 
+
       $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
-
-
-
-
 
         <!-- add talent Modal -->
         <div class="modal fade" id="addTalentButton-${eachUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
@@ -65,9 +67,6 @@ $(document).ready(function() {
             </div>
           </div>
         </div>
-
-
-
 
 
 
@@ -177,10 +176,6 @@ $(document).ready(function() {
       $('#users').prepend(`
         <div class="panel" data-id="${createdUser._id}">
 
-
-
-
-
         <!-- add talent Modal -->
         <div class="modal fade" id="addTalentButton-${createdUser._id}" tabindex="-1" role="dialog" aria-labelledby="addTalentButtonLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -224,10 +219,7 @@ $(document).ready(function() {
 
 
 
-
           <button name="button"  type="button" class="delete-user btn btn-danger pull-right" data-id=${createdUser._id}>Delete</button>
-
-          <button class='btn btn-info edit-talents'>Edit Talents</button>
 
             <h4>Meet this talented person</h4>
           <p><strong><u>${createdUser.name}</strong></u></p>
@@ -248,8 +240,8 @@ $(document).ready(function() {
           <button type="button" class="btn btn-primary" id="editTalentButton" data-toggle="modal"data-target="#editTalentButton">Edit Talent</button>
           </div>
 
-        </div>`
-      )
+        </div>
+      `)
     };
 
 
@@ -310,7 +302,25 @@ $(document).ready(function() {
        location.reload();
      }
  });
-//
+
+
+
+// CLICK USER PROFILE TALENTS TO EXPAND: ACCORDION
+ var acc = document.getElementsByClassName("accordion");
+
+ for (var i = 0; i < acc.length; i++) {
+     acc[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var panel = this.nextElementSibling;
+         if (panel.style.display === "block") {
+             panel.style.display = "none";
+         } else {
+             panel.style.display = "block";
+         }
+     });
+ }
+
+
 
 }); //end doc.ready
 // EDIT BUTTON FOR USER 

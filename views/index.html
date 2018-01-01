@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -28,123 +29,135 @@
       </div>
     </div>
 
-    <section id='user-form' class="container">
-      <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+    <div class="w3-sidebar w3-bar-block" style="width: 20%">
+      <a href="#" class="w3-bar-item w3-button w3-border-bottom">Ann</a>
+      <a href="#" class="w3-bar-item w3-button w3-border-bottom">Jack</a>
+      <a href="#" class="w3-bar-item w3-button">Lily</a>
+    </div>
 
-        <form class="form-horizontal">
-          <fieldset>
-
-            <!-- Form Name -->
-            <legend>Join the <strong>Network</strong></legend>
-
-                                    <!-- USER FIELDS -->
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="name">User Name</label>
-              <div class="col-md-4">
-              <input id="name" name="name" type="text" placeholder="write your name" class="form-control input-md" required="">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="email">Email</label>
-              <div class="col-md-4">
-              <input id="email" name="email" type="text" placeholder="your email to get discovered" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="location">Location</label>
-              <div class="col-md-4">
-              <input id="location" name="location" type="text" placeholder="where are you from?" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Button for Creating Profiles-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton">Create your Profile</label>
-              <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-
-
-
-          </fieldset>
-        </form>
-      </div>
-      </div>
-    </section>
-
-
-
-
-
-    <!-- edit talent Modal -->
-    <div class="modal fade" id="editTalentButton" tabindex="-1" role="dialog" aria-labelledby="editTalentButtonLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editTalentButtonLabel">Here you can make edits to your talents</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-                <!-- TALENT FIELDS -->
-                <form id="editTalentForm">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="talentName" placeholder="what do you call your talent?">Talent Name</label>
-                    <div class="col-md-4">
-                      <input class="form-control" id="talentName" name="talentName"></input>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="talentImage" >Talent Image</label>
-                    <div class="col-md-4">
-                      <input class="form-control" id="talentImage" name="talentImage" placeholder="edit the url for an image to describe your talent "></input>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="talentDesription">Talent Description</label>
-                    <div class="col-md-4">
-                      <textarea class="form-control" id="talentDesription" name="talentDesription" placeholder="tell us about your talent"></textarea>
-                    </div>
-                  </div>
-                </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
+    <div class="menuBackdrop">
+      <p>Backdrop Begins Here</p>
     </div>
 
 
-
-
-
-
-
-                            <!-- DISPLAYS USERS -->
-
-    <section class="container">
-      <div class="row">
+    <main  style="margin-left: 20%">
+      <section id='user-form' class="container">
+        <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h2>Featured Talented People!</h2>
+
+          <form class="form-horizontal">
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Join the <strong>Network</strong></legend>
+
+                                      <!-- USER FIELDS -->
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">User Name</label>
+                <div class="col-md-4">
+                <input id="name" name="name" type="text" placeholder="write your name" class="form-control input-md" required="">
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email</label>
+                <div class="col-md-4">
+                <input id="email" name="email" type="text" placeholder="your email to get discovered" class="form-control input-md">
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="location">Location</label>
+                <div class="col-md-4">
+                <input id="location" name="location" type="text" placeholder="where are you from?" class="form-control input-md">
+
+                </div>
+              </div>
+
+              <!-- Button for Creating Profiles-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton">Create your Profile</label>
+                <div class="col-md-4">
+                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+
+
+
+            </fieldset>
+          </form>
+        </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- edit talent Modal -->
+      <div class="modal fade" id="editTalentButton" tabindex="-1" role="dialog" aria-labelledby="editTalentButtonLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editTalentButtonLabel">Here you can make edits to your talents</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                  <!-- TALENT FIELDS -->
+                  <form id="editTalentForm">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="talentName" placeholder="what do you call your talent?">Talent Name</label>
+                      <div class="col-md-4">
+                        <input class="form-control" id="talentName" name="talentName"></input>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="talentImage" >Talent Image</label>
+                      <div class="col-md-4">
+                        <input class="form-control" id="talentImage" name="talentImage" placeholder="edit the url for an image to describe your talent "></input>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="talentDesription">Talent Description</label>
+                      <div class="col-md-4">
+                        <textarea class="form-control" id="talentDesription" name="talentDesription" placeholder="tell us about your talent"></textarea>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- users! -->
-      <div id="users"></div>
-    </section>
 
+
+
+
+
+
+
+                              <!-- DISPLAYS USERS -->
+
+      <section class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2>Featured Talented People!</h2>
+          </div>
+        </div>
+        <!-- users! -->
+        <div id="users"></div>
+      </section>
+    </main>
 
 
 
