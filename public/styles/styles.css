@@ -1,10 +1,16 @@
+body {
+  background-image: url("../images/clouds.jpeg");
+  background-image: cover;
+  background-repeat: repeat;
+}
+
 div.jumbotron {
   background-image: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1457172742000/photosp/63c6bccd-6faa-47d2-85f4-4241e229f771/stock-photo-celebration-music-concert-holiday-party-music-festival-performance-lights-talent-63c6bccd-6faa-47d2-85f4-4241e229f771.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: red;
   text-align: center;
-
+  font-family: 'Lobster', cursive;
 }
 .jumbotron .container {
   height: 400px;
@@ -16,6 +22,16 @@ div.jumbotron {
   margin-right: 20px;
 }
 
+h1#title {
+  font-size: 7em;
+  text-shadow: 0 0 10px #fff;
+}
+
+div.jumbotron p {
+  font-size: 2.5em;
+  text-shadow: 0 0 2px #fff;
+}
+
 #title {
   text-align: center;
 
@@ -24,6 +40,64 @@ div.jumbotron {
    border: 3px solid black;
  }
 
+h2 {
+  text-align: center;
+}
+
+h4 {
+  /*margin-left: 10%;*/
+  text-align: center;
+}
+
 h2, h4 {
-  margin-left: 10%;
+  font-family: 'Lobster', cursive;
+}
+
+#users {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /*width: 45%;*/
+}
+
+div#users {
+  width: 100%;
+}
+
+div.panel:nth-child(odd) {
+  margin-right: 5%;
+}
+
+div.panel:nth-child(even) {
+  margin-left: 5%;
+}
+
+div.panel p {
+  padding-left: 10%;
+}
+
+div.card {
+  background: #eee;
+  padding: 1em;
+}
+
+div.card:nth-child(odd) {
+  background: #ddd;
+}
+
+fieldset {
+        /*for testing*/
+  /*border: 5px solid red;*/
+  /*border-radius: 25%;*/
+}
+
+legend {
+  text-align: center;
+}
+
+
+
+img {
+  height: auto;
+  width: 100px;
+  max-height: 100px;
 }
