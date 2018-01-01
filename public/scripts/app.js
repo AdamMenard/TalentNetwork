@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 // GET REQUEST FROM DATABASE
   $.ajax({
     method: "GET",
@@ -7,16 +8,21 @@ $(document).ready(function() {
     success: handleGetSuccess,
     error: handleError
   });
+  
 
   function handleGetSuccess(allUsersFromDb) {
     allUsersFromDb.forEach(function(eachUser) {
       var arrayOfTalentDivs = eachUser.talents.map(function(eachTalent) {
-        return `<div class="card">
-          <p>${eachTalent.name}</p>
-          <p>${eachTalent.description}</p>
-          <img src="${eachTalent.image}"/>
+        return `
+        <div class="card">
+          <button class="accordion">${eachTalent.name}</button>
+            <div class="panel">
+                <p>${eachTalent.description}</p>
+                <img src="${eachTalent.image}"/>
+            </div>
         </div>`;
       });
+
 
       $('#users').prepend(`
         <div class="panel" data-id="${eachUser._id}">
@@ -250,6 +256,9 @@ $(document).ready(function() {
        location.reload();
      }
  });
-//
+
+
+
+
 
 }); //end doc.ready
