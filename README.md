@@ -5,7 +5,7 @@ This is an MVP of an administrative level view of Talent Network.  Talent Networ
 Link to project hosted on Heroku
 https://talentnetwork.herokuapp.com/
 
-	Technologies Used
+		Technologies Used
 * Javascript
 * JQuery
 * Node.js
@@ -19,14 +19,14 @@ https://talentnetwork.herokuapp.com/
 * Github
 * Heroku
 
-	Existing Features
+		Existing Features
 * Create New User feature (Join the Network)
 * Delete User profile button on each profile
 * Add new Talent button feature on each profile
 * Edit User Talents button on profile (full functionality in progress)
 * Menu of User names (full functionality in progress)
 
-	Planned Features
+		Planned Features
 * Edit Talents button using custom modal to add or remove talents
 * Menu updates with user names as they are added or deleted
 * Image urls will be able to be uploaded with talents
