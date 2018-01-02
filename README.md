@@ -28,5 +28,4 @@ https://talentnetwork.herokuapp.com/
 
 		Planned Features
 * Edit Talents button using custom modal to add or remove talents
-* Menu updates with user names as they are added or deleted
-* Image urls will be able to be uploaded with talents
+* Menu on left side updates with user names as they are added or deleted
