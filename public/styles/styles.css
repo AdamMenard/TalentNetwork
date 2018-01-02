@@ -80,7 +80,7 @@ div.panel p {
 }
 
 div.card {
-  background: #eee;
+  background: #ccc;
   padding: 1em;
 }
 
@@ -160,14 +160,14 @@ main {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
+/*made for testing add and edit talent buttons on profiles*/
+    section.container div .btn.btn-primary {
+      float: left;
+    }
 
-section.container div .btn.btn-primary {
-  float: left;
-}
-
-section.container div .btn.btn-primary:nth-child(even) {
-  float: right;
-}
+    section.container div .btn.btn-primary:nth-child(even) {
+      float: right;
+    }
 
 /* Style the links inside the sidenav */
 #mySidenav a {
