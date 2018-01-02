@@ -139,7 +139,7 @@ main {
 
 div.card div.panel {
     padding: 0 18px;
-    /*display: none;*/
+    display: none;
     background-color: white;
 }
 
