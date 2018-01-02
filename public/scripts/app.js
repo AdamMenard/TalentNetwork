@@ -245,7 +245,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     $.ajax({
-      method: 'PUT',
+      method: 'POST',
       url: '/api/users/'+$(this).attr('data-id') + '/talents',
       data: $(this).serialize(),
       success: addTalentButtonSuccess,
