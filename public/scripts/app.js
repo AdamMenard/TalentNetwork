@@ -17,8 +17,8 @@ $(document).ready(function() {
         <div class="card">
           <button class="accordion">${eachTalent.name}</button>
             <div class="panel">
-                <p>${eachTalent.description}</p>
-                <img src="${eachTalent.image}"/>
+                <p class="">${eachTalent.description}</p>
+                <img class="" src="${eachTalent.image}"/>
             </div>
         </div>`;
       });

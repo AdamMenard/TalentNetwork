@@ -38,10 +38,6 @@ div.jumbotron p {
   text-align: center;
 
 }
- .panel {
-   border: 3px dotted rgba(100,100,200, .5);
-
- }
 
 h2 {
   text-align: center;
@@ -59,7 +55,6 @@ h2, h4 {
 #users {
   display: grid;
   grid-template-columns: 45% 45%;
-  /*width: 45%;*/
 }
 
 div#users {
@@ -139,10 +134,10 @@ main {
 }
 
 .active, .accordion:hover {
-    background-color: #ccc;
+    background-color: #bbb;
 }
 
-.accordion .panel p {
+div.card div.panel {
     padding: 0 18px;
     display: none;
     background-color: white;
@@ -165,9 +160,9 @@ main {
       float: left;
     }
 
-    section.container div .btn.btn-primary:nth-child(even) {
+    /*section.container div .btn.btn-primary:nth-child(even) {
       float: right;
-    }
+    }*/
 
 /* Style the links inside the sidenav */
 #mySidenav a {

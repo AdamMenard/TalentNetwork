@@ -39,19 +39,19 @@ var usersList = [{
  name: 'Lily',
  email: 'lilytest@gmail.com',
  location: 'New York',
- talents: [talentsList[2], talentsList[3]]
+ talents: [talentsList[2], talentsList[3], talentsList[1]]
 
 }, {
  name: 'Jack',
  email: 'jacktest@gmail.com',
  location: 'Chicago',
- talents: [talentsList[4], talentsList[5]]
+ talents: [talentsList[4], talentsList[5], talentsList[1]]
 
 }, {
  name: 'Ann',
  email: 'anntest@gmail.com',
  location: 'Boston',
- talents: [talentsList[4], talentsList[6]]
+ talents: [talentsList[4], talentsList[6], talentsList[3]]
 }];
 
 
