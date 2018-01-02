@@ -15,14 +15,14 @@ function create(req, res) {
   });
 }
 
-// GET /api/users/:userId
+// GET /api/users/:user_id
 function show(req, res) {
   db.User.findById(req.params.user_id, function(err, foundUser) {
     res.json(foundUser);
   });
 }
 
-// DELETE /api/users/:userId
+// DELETE /api/users/:user_id
 function destroy(req, res) {
   db.User.findByIdAndRemove(req.params.user_id, function(err, deletedUser) {
     if (err) { console.log('error', err); }
@@ -31,9 +31,9 @@ function destroy(req, res) {
   });
 }
 
-// PUT or PATCH /api/users/:userId
+// PUT or PATCH /api/users/:user_id
 function update(req, res) {
-  db.User.findById(req.params.id, function(err, foundUser) {
+  db.User.findById(req.params.user_id, function(err, foundUser) {
     if (err) { console.log('usersController.update error', err); }
     foundUser.name = req.body.name;
     foundUser.email = req.body.email;

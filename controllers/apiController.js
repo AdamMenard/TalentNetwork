@@ -6,7 +6,8 @@ function index(req, res) {
     endpoints: [
       {
         method: 'GET', path: '/api', description: 'Describes available endpoints'
-      }
+      },
+      // flush out other endpoints
     ]
   });
 }
