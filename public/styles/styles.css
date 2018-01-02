@@ -155,14 +155,16 @@ div.card div.panel {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-/*made for testing add and edit talent buttons on profiles*/
+
+footer p {
+  text-align: center;
+  font-family: inherit;
+}
+
     section.container div .btn.btn-primary {
       float: left;
     }
 
-    /*section.container div .btn.btn-primary:nth-child(even) {
-      float: right;
-    }*/
 
 /* Style the links inside the sidenav */
 #mySidenav a {
