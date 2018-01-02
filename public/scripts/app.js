@@ -17,8 +17,8 @@ $(document).ready(function() {
         <div class="card">
           <button class="accordion">${eachTalent.name}</button>
             <div class="panel">
-                <p>${eachTalent.description}</p>
-                <img src="${eachTalent.image}"/>
+                <p class="">${eachTalent.description}</p>
+                <img class="" src="${eachTalent.image}"/>
             </div>
         </div>`;
       });
@@ -57,11 +57,11 @@ $(document).ready(function() {
                         <div class="col-md-4">
                           <textarea class="form-control" id="talentDesription" name="description" placeholder="tell us about your talent"></textarea>
                         </div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                    </form>
               </div>
               <div class="modal-footer">
+              </div>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
@@ -147,6 +147,24 @@ $(document).ready(function() {
   function handleError(errorResponse) {
     console.log('There was an error: ', errorResponse);
   }
+
+
+  // CLICK USER PROFILE TALENTS TO EXPAND: ACCORDION
+
+   var acc = document.getElementsByClassName("accordion");
+
+   for (var i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+           this.classList.toggle("active");
+           var panel = this.nextElementSibling;
+           if (panel.style.display === "block") {
+               panel.style.display = "none";
+           } else {
+               panel.style.display = "block";
+           }
+       });
+   }
+
 
 
 // SUBMIT BUTTON FOR CREATING NEW USER
@@ -270,21 +288,29 @@ $(document).ready(function() {
 
 
 // BUTTON FOR EDIT TALENTS
-   $('#editTalentForm').on('submit', function() {
+   $('#editTalentForm').on('submit', function(e) {
      console.log("Edit talent button submit clicked");
+     e.preventDefault();
 
      $.ajax({
        method: 'PUT',
-       url: '/api/users/'+$(this).attr('data-id')+'/talents',
+       url: '/api/users/'+$(this).attr('data-id')+'/editTalents',
+       data: $(this).serialize(),
        // success: editTalentButtonSuccess,
-       // error: error
+       // error: function(err) { console.log(err);
      }) //end ajax
+
+     function editTalentButtonSuccess(userWithTalentEdited) {
+       // edit talent on profile
+       location.reload();
+     }
+
  });
 
 
 // BUTTON FOR ADD TALENTS
    $('#users').on('submit', '.addTalentForm', function(e) {
-     console.log("Edit talent button submit clicked");
+     console.log("Add talent button submit clicked");
      e.preventDefault();
 
      console.log('form data', $(this).serialize());
@@ -304,21 +330,6 @@ $(document).ready(function() {
  });
 
 
-
-// CLICK USER PROFILE TALENTS TO EXPAND: ACCORDION
- var acc = document.getElementsByClassName("accordion");
-
- for (var i = 0; i < acc.length; i++) {
-     acc[i].addEventListener("click", function() {
-         this.classList.toggle("active");
-         var panel = this.nextElementSibling;
-         if (panel.style.display === "block") {
-             panel.style.display = "none";
-         } else {
-             panel.style.display = "block";
-         }
-     });
- }
 
 
 
