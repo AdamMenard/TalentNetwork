@@ -54,7 +54,6 @@ var usersList = [{
  talents: [talentsList[4], talentsList[6], talentsList[3]]
 }];
 
-
 db.User.remove({}, function(err, users){
   // code in here runs after all users are removed
   db.User.create(usersList, function(err, users){
